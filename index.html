@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Turtle Animation en la Web</title>
+    <title>Turtle Animation Centrada</title>
     <!-- Incluye Brython -->
     <script src="https://cdn.jsdelivr.net/npm/brython@3.10/brython.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/brython@3.10/brython_stdlib.js"></script>
@@ -13,24 +13,31 @@
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            overflow: hidden;
         }
         canvas {
-            border: 1px solid #000;
+            display: block;
+            margin: auto;
         }
     </style>
 </head>
 <body onload="brython()">
-    <canvas id="turtleCanvas" width="800" height="800"></canvas>
+    <canvas id="turtleCanvas"></canvas>
 
     <script type="text/python">
-        from browser import document
+        from browser import document, window
         import turtle
 
+        # Ajustar el tamaño del canvas al tamaño de la ventana
+        canvas = document["turtleCanvas"]
+        canvas.width = window.innerWidth * 0.8  # 80% del ancho de la ventana
+        canvas.height = window.innerHeight * 0.8  # 80% del alto de la ventana
+
         # Configuración inicial de Turtle
-        t = turtle.Turtle()
         screen = turtle.Screen()
-        screen.setup(800, 800)
+        screen.setup(canvas.width, canvas.height)
         screen.bgcolor("white")
+        t = turtle.Turtle()
         t.pensize(5)
         t.shape("turtle")
 
