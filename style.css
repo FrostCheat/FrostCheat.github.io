@@ -1,43 +1,35 @@
+/* Fondo negro */
 body {
     background: black;
     margin: 0;
+    overflow: hidden;
 }
 
-/* Contenedor de corazones */
+/* Contenedor general */
 .container {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
-    z-index: -1;
-    margin: 0;
-    font-size: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
 }
 
-/* Letra "S" en el centro */
+/* Grupo de corazones flotando */
+.hearts-group {
+    position: absolute;
+    display: flex;
+    gap: 50px;
+    animation: floatUp 10s linear infinite;
+}
+
+/* Letra "S" centrada */
 .letter-s {
     position: absolute;
-    font-size: 100px;
+    font-size: 120px;
     font-weight: bold;
     color: white;
-    text-align: center;
     z-index: 10;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Columnas de corazones */
-.col {
-    display: inline-block;
-    width: 19%;
 }
 
 /* Corazones */
@@ -45,23 +37,18 @@ body {
     width: 150px;
     height: 150px;
     position: relative;
-    top: 120vh;
     z-index: -1;
 }
 
-/* Animación de corazones */
-.heart1 { animation: 20s Linear-motion infinite, MoveLeft 23s infinite; animation-delay: 5s; }
-.heart2 { animation: 12s Linear-motion infinite, MoveLeft 15s infinite; animation-delay: 1s; }
-.heart3 { animation: 12s Linear-motion infinite, MoveLeft 15s infinite; animation-delay: 18s; }
-.heart4 { animation: 16s Linear-motion infinite, MoveLeft 19s infinite; animation-delay: 11s; }
-.heart5 { animation: 15s Linear-motion infinite, MoveLeft 18s infinite; animation-delay: 5s; }
-
-@keyframes Linear-motion {
-    0% { top: 100vh; }
-    100% { top: -20vh; }
+/* Animación de corazones flotando */
+@keyframes floatUp {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-120vh); }
 }
 
-@keyframes MoveLeft {
-    0%, 100% { margin-left: 0%; }
-    50% { margin-left: 50%; }
-}
+/* Corazones con retrasos diferentes para efecto dinámico */
+.heart1 { animation: floatUp 12s linear infinite; animation-delay: 0s; }
+.heart2 { animation: floatUp 14s linear infinite; animation-delay: 2s; }
+.heart3 { animation: floatUp 16s linear infinite; animation-delay: 4s; }
+.heart4 { animation: floatUp 18s linear infinite; animation-delay: 6s; }
+.heart5 { animation: floatUp 20s linear infinite; animation-delay: 8s; }
