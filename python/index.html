@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guía de Python - Bases del Lenguaje</h1>
+
+    <h2>Tipos de Variables en Python</h2>
+    <pre>
 # tipos de variables que se usan en python
 entero = 10      # variable que guarda un numero entero (se llama integer)
 decimal = 3.14   # variable que guarda un numero decimal (se llama float)
@@ -6,7 +37,10 @@ booleano = True  # variable que guarda un valor verdadero o falso (se llama valo
 
 print(entero, decimal, texto, booleano) # Aqui hago una depuracion para ver los valores en consola
 # Deberia verse asi 10 3.14 Hola True
+    </pre>
 
+    <h2>Condiciones (if, elif, else)</h2>
+    <pre>
 # Uso de condiciones (usamos un if else o tmb elif)
 # para usarse se usa if (condicion) (en caso de ser un valor boolean hay que dejarlo asi, solo se va a 
 # ejecutar el codigo si el valor es True si es False va a ejecutar el codigo elif si se cumple esa condicion
@@ -28,8 +62,10 @@ elif edad >= 13:
     print("Eres adolescente")
 else:
     print("Eres niño")
+    </pre>
 
-
+    <h2>Bucles (for & while)</h2>
+    <pre>
 # Ahora usaremos 2 tipos de bucles (for & while)
 # Empezaremos a usar los for que son un poquito menos complejos
 
@@ -43,8 +79,10 @@ contador = 0
 while contador < 5:
     print(contador)
     contador += 1
+    </pre>
 
-
+    <h2>Funciones en Python</h2>
+    <pre>
 # Ahora empezaremos a definir funciones
 # Para una funcion siempre se empieza por el "def" y luego el nombre de la funcion y los parentesis ()
 # tendria que quedar algo asi def funcion():
@@ -54,7 +92,10 @@ def saludar(nombre):
     return f"Hola, {nombre}"
 
 print(saludar("Carlos"))
+    </pre>
 
+    <h2>Listas y Diccionarios</h2>
+    <pre>
 # Ahora veremos Listas y Diccionarios y las diferencias que tienen
 # Esto es una lista las listas siempre van entre [] 
 # no podemos guardar informacion dentro de algun elemento que coloquemos dentro de ella
@@ -67,7 +108,10 @@ persona = {"nombre": "Ana", "edad": 25}
 print(persona["nombre"])  # Acceder al valor de una clave
 persona["nombre"] = "Carlos"
 print(persona["nombre"]) # Accede al valor del nombre que fue modificado
+    </pre>
 
+    <h2>Manejo de Excepciones</h2>
+    <pre>
 # Por ultimo haremos un manejo de exepciones del try except (esto es bastante complejo de aprender)
 # Esto es para intentar transforar un string a un numero, si el string no contiene un numero va
 # realizar la funcion que esta en el except, si el string contiene un numero lo va a tranformar y va ejecutar el codigo que esta en el try
@@ -78,3 +122,7 @@ try:
     print("El doble es:", num * 2)
 except ValueError:
     print("¡Eso no es un número!")
+    </pre>
+
+</body>
+</html>
