@@ -1,111 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Animación en PHP y Canvas</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            overflow: hidden;
-        }
-        canvas {
-            border: 1px solid #000;
-            background-color: white;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Heart Animation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="../icono/icono_ney.png">
 </head>
 <body>
-    <canvas id="myCanvas" width="800" height="800"></canvas>
-
-    <script>
-        // Obtener el contexto del canvas
-        const canvas = document.getElementById("myCanvas");
-        const ctx = canvas.getContext("2d");
-
-        // Función para dibujar un arco
-        function drawArc(x, y, radius, startAngle, endAngle, color) {
-            ctx.beginPath();
-            ctx.arc(x, y, radius, startAngle, endAngle);
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 5;
-            ctx.stroke();
-        }
-
-        // Función para dibujar una línea
-        function drawLine(x1, y1, x2, y2, color) {
-            ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 5;
-            ctx.stroke();
-        }
-
-        // Función para dibujar un polígono relleno
-        function drawPolygon(points, color) {
-            ctx.beginPath();
-            ctx.moveTo(points[0].x, points[0].y);
-            for (let i = 1; i < points.length; i++) {
-                ctx.lineTo(points[i].x, points[i].y);
-            }
-            ctx.closePath();
-            ctx.fillStyle = color;
-            ctx.fill();
-        }
-
-        // Coordenadas y colores de la animación
-        const layers = [
-            {
-                color: "pink",
-                points: [
-                    { x: 78.71, y: 55.28 }, { x: -28.25, y: 91.94 },
-                    { x: -96.17, y: 1.53 }, { x: -31.18, y: -90.99 },
-                    { x: 76.9, y: -57.77 }
-                ]
-            },
-            {
-                color: "deeppink",
-                points: [
-                    { x: -61.89, y: 177.63 }, { x: -188.06, y: -3.97 },
-                    { x: -54.33, y: -180.09 }, { x: 154.48, y: -107.32 },
-                    { x: 149.81, y: 113.75 }
-                ]
-            },
-            {
-                color: "red",
-                points: [
-                    { x: 59.74, y: 79.64 }, { x: -57.28, y: 81.42 },
-                    { x: -95.14, y: -29.32 }, { x: -1.51, y: -99.54 },
-                    { x: 94.2, y: -32.2 }
-                ]
-            },
-            {
-                color: "mediumvioletred",
-                points: [
-                    { x: 127.9, y: 219.92 }, { x: -169.63, y: 189.6 },
-                    { x: -232.74, y: -102.74 }, { x: 25.79, y: -253.1 },
-                    { x: 248.68, y: -53.68 }
-                ]
-            }
-        ];
-
-        // Escalar y centrar las coordenadas
-        const scale = 1.5;
-        const offsetX = canvas.width / 2;
-        const offsetY = canvas.height / 2;
-
-        // Dibujar cada capa
-        layers.forEach(layer => {
-            const scaledPoints = layer.points.map(point => ({
-                x: point.x * scale + offsetX,
-                y: -point.y * scale + offsetY // Invertir Y para ajustar el sistema de coordenadas
-            }));
-            drawPolygon(scaledPoints, layer.color);
-        });
-    </script>
+    <div class="container">
+        <div class="col">
+            <div class="heart heart1">
+                <div class="circle"></div>
+                <div class="halfMoon"></div>
+            </div>  
+        </div>
+        <div class="col">
+            <div class="heart heart2">
+                <div class="circle"></div>
+                <div class="halfMoon"></div>
+            </div>  
+        </div>
+        <div class="col">
+            <div class="heart heart3">
+                <div class="circle"></div>
+                <div class="halfMoon"></div>
+            </div>  
+        </div>
+        <div class="col">
+            <div class="heart heart4">
+                <div class="circle"></div>
+                <div class="halfMoon"></div>
+            </div>  
+        </div>
+        <div class="col">
+            <div class="heart heart5">
+                <div class="circle"></div>
+                <div class="halfMoon"></div>
+            </div>  
+        </div>
+        
+        <!-- Letra "S" centrada -->
+        <div class="letter-s">S</div>
+    </div>
 </body>
 </html>
