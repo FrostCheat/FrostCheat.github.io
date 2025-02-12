@@ -22,6 +22,9 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+        .comentario {
+            color: #6a9955; /* Verde para los comentarios */
+        }
     </style>
 </head>
 <body>
@@ -29,22 +32,22 @@
 
     <h2>Tipos de Variables en Python</h2>
     <pre>
-# tipos de variables que se usan en python
-entero = 10      # variable que guarda un numero entero (se llama integer)
-decimal = 3.14   # variable que guarda un numero decimal (se llama float)
-texto = "Hola"   # variable que guarda una cadena de texto (se llama string)
-booleano = True  # variable que guarda un valor verdadero o falso (se llama valor buleano o boolean)
+<span class="comentario"># tipos de variables que se usan en python</span>
+entero = 10      <span class="comentario"># variable que guarda un numero entero (se llama integer)</span>
+decimal = 3.14   <span class="comentario"># variable que guarda un numero decimal (se llama float)</span>
+texto = "Hola"   <span class="comentario"># variable que guarda una cadena de texto (se llama string)</span>
+booleano = True  <span class="comentario"># variable que guarda un valor verdadero o falso (se llama valor buleano o boolean)</span>
 
-print(entero, decimal, texto, booleano) # Aqui hago una depuracion para ver los valores en consola
-# Deberia verse asi 10 3.14 Hola True
+print(entero, decimal, texto, booleano) <span class="comentario"># Aqui hago una depuracion para ver los valores en consola</span>
+<span class="comentario"># Deberia verse asi 10 3.14 Hola True</span>
     </pre>
 
     <h2>Condiciones (if, elif, else)</h2>
     <pre>
-# Uso de condiciones (usamos un if else o tmb elif)
-# para usarse se usa if (condicion) (en caso de ser un valor boolean hay que dejarlo asi, solo se va a 
-# ejecutar el codigo si el valor es True si es False va a ejecutar el codigo elif si se cumple esa condicion
-# o en tal caso si hay un else se cumple la del ese)
+<span class="comentario"># Uso de condiciones (usamos un if else o tmb elif)</span>
+<span class="comentario"># para usarse se usa if (condicion) (en caso de ser un valor boolean hay que dejarlo asi, solo se va a </span>
+<span class="comentario"># ejecutar el codigo si el valor es True si es False va a ejecutar el codigo elif si se cumple esa condicion</span>
+<span class="comentario"># o en tal caso si hay un else se cumple la del ese)</span>
 
 var = False
 
@@ -53,7 +56,7 @@ if var:
 else:
     print("Condicion ELSE")
 
-# Aqui un ejemplo practico de como se usan las condiciones con un variable que no es boolean
+<span class="comentario"># Aqui un ejemplo practico de como se usan las condiciones con un variable que no es boolean</span>
 edad = 18
 
 if edad >= 18:
@@ -66,15 +69,15 @@ else:
 
     <h2>Bucles (for & while)</h2>
     <pre>
-# Ahora usaremos 2 tipos de bucles (for & while)
-# Empezaremos a usar los for que son un poquito menos complejos
+<span class="comentario"># Ahora usaremos 2 tipos de bucles (for & while)</span>
+<span class="comentario"># Empezaremos a usar los for que son un poquito menos complejos</span>
 
-# Esto va a mostrar 5 numeros, no va a llegar hasta el 5 ya que siempre comienza desde 0
+<span class="comentario"># Esto va a mostrar 5 numeros, no va a llegar hasta el 5 ya que siempre comienza desde 0</span>
 for i in range(5):
     print(i)
 
-# Esto hace lo mismo que el anterior solo que mas complejo  muestra numeros desde el 0 como lo indica
-# la variable contador
+<span class="comentario"># Esto hace lo mismo que el anterior solo que mas complejo  muestra numeros desde el 0 como lo indica</span>
+<span class="comentario"># la variable contador</span>
 contador = 0
 while contador < 5:
     print(contador)
@@ -83,11 +86,11 @@ while contador < 5:
 
     <h2>Funciones en Python</h2>
     <pre>
-# Ahora empezaremos a definir funciones
-# Para una funcion siempre se empieza por el "def" y luego el nombre de la funcion y los parentesis ()
-# tendria que quedar algo asi def funcion():
-# para llamar a la funcion solo seria funcion()
-# Aqui un ejemplo de como crear y usar una funcion
+<span class="comentario"># Ahora empezaremos a definir funciones</span>
+<span class="comentario"># Para una funcion siempre se empieza por el "def" y luego el nombre de la funcion y los parentesis ()</span>
+<span class="comentario"># tendria que quedar algo asi def funcion():</span>
+<span class="comentario"># para llamar a la funcion solo seria funcion()</span>
+<span class="comentario"># Aqui un ejemplo de como crear y usar una funcion</span>
 def saludar(nombre):
     return f"Hola, {nombre}"
 
@@ -96,27 +99,27 @@ print(saludar("Carlos"))
 
     <h2>Listas y Diccionarios</h2>
     <pre>
-# Ahora veremos Listas y Diccionarios y las diferencias que tienen
-# Esto es una lista las listas siempre van entre [] 
-# no podemos guardar informacion dentro de algun elemento que coloquemos dentro de ella
-frutas = ["Manzana", "Banana", "Cereza"] # Para acceder a estos 3 elementos tenemos que empezar desde 0 hasta 1 numero menos del total que hay (osea del 0 al 2) para ver los 3 elementos que hay dentro de la lista
-print(frutas[0])  # Acceder al primer elemento
+<span class="comentario"># Ahora veremos Listas y Diccionarios y las diferencias que tienen</span>
+<span class="comentario"># Esto es una lista las listas siempre van entre [] </span>
+<span class="comentario"># no podemos guardar informacion dentro de algun elemento que coloquemos dentro de ella</span>
+frutas = ["Manzana", "Banana", "Cereza"] 
+print(frutas[0])  <span class="comentario"># Acceder al primer elemento</span>
 
-# Esto es un diccionario siempre van entre {} 
-# podemos guardar informacion dentro de una variable definida que tmb puede ser cambiada posteriormente
+<span class="comentario"># Esto es un diccionario siempre van entre {}</span>
+<span class="comentario"># podemos guardar informacion dentro de una variable definida que tmb puede ser cambiada posteriormente</span>
 persona = {"nombre": "Ana", "edad": 25}
-print(persona["nombre"])  # Acceder al valor de una clave
+print(persona["nombre"])  <span class="comentario"># Acceder al valor de una clave</span>
 persona["nombre"] = "Carlos"
-print(persona["nombre"]) # Accede al valor del nombre que fue modificado
+print(persona["nombre"]) <span class="comentario"># Accede al valor del nombre que fue modificado</span>
     </pre>
 
     <h2>Manejo de Excepciones</h2>
     <pre>
-# Por ultimo haremos un manejo de exepciones del try except (esto es bastante complejo de aprender)
-# Esto es para intentar transforar un string a un numero, si el string no contiene un numero va
-# realizar la funcion que esta en el except, si el string contiene un numero lo va a tranformar y va ejecutar el codigo que esta en el try
-# Esto se usa bastantes veces para manejar los tipos de errores, porque en este caso
-# "1" si se puede transformar a 1, pero si pasas "Hola" no se puede transformar a un numero y manda el error (si no se usa el try except)
+<span class="comentario"># Por ultimo haremos un manejo de exepciones del try except (esto es bastante complejo de aprender)</span>
+<span class="comentario"># Esto es para intentar transforar un string a un numero, si el string no contiene un numero va</span>
+<span class="comentario"># realizar la funcion que esta en el except, si el string contiene un numero lo va a tranformar y va ejecutar el codigo que esta en el try</span>
+<span class="comentario"># Esto se usa bastantes veces para manejar los tipos de errores, porque en este caso</span>
+<span class="comentario"># "1" si se puede transformar a 1, pero si pasas "Hola" no se puede transformar a un numero y manda el error (si no se usa el try except)</span>
 try:
     num = int(input("Ingresa un número: "))
     print("El doble es:", num * 2)
@@ -126,26 +129,26 @@ except ValueError:
 
     <h2>Transformar variables</h2>
     <pre>
-# Como transformar un string a un numero
-# String a numero entero
+<span class="comentario"># Como transformar un string a un numero</span>
+<span class="comentario"># String a numero entero</span>
 var = "1"
 var = int(var)
 
 print(var)
 
-# String a un numero decimal
+<span class="comentario"># String a un numero decimal</span>
 var = "3.1416"
 var = float(var)
 
 print(var)
 
-# Numero a un String
+<span class="comentario"># Numero a un String</span>
 var = 1
 var = str(var)
 
 print(var)
 
-# Numero decimal a un String
+<span class="comentario"># Numero decimal a un String</span>
 var = 3.1416
 var = str(var)
 
