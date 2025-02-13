@@ -23,7 +23,21 @@
             word-wrap: break-word;
         }
         .comentario {
-            color: #6a9955; /* Verde para los comentarios */
+            color: #6a9955;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #ddd;
         }
     </style>
 </head>
@@ -154,6 +168,34 @@ var = str(var)
 
 print(var)
     </pre>
+    <h2>Operadores de Comparación</h2>
+    <table>
+        <tr>
+            <th>Operador</th>
+            <th>Descripción</th>
+            <th>Ejemplo</th>
+            <th>Resultado</th>
+        </tr>
+        <tr><td>==</td><td>Igualdad</td><td>5 == 5</td><td>True</td></tr>
+        <tr><td>!=</td><td>Diferente</td><td>5 != 3</td><td>True</td></tr>
+        <tr><td>></td><td>Mayor que</td><td>5 > 3</td><td>True</td></tr>
+        <tr><td><</td><td>Menor que</td><td>5 < 3</td><td>False</td></tr>
+        <tr><td>>=</td><td>Mayor o igual que</td><td>5 >= 5</td><td>True</td></tr>
+        <tr><td><=</td><td>Menor o igual que</td><td>3 <= 5</td><td>True</td></tr>
+    </table>
+    
+    <h2>Ejemplo de operadores de comparación</h2>
+    <pre>
+<span class="comentario"># Ejemplo de uso de operadores de comparación</span>
+a = 10
+b = 20
 
+print(a == b)  <span class="comentario"># False</span>
+print(a != b)  <span class="comentario"># True</span>
+print(a > b)   <span class="comentario"># False</span>
+print(a < b)   <span class="comentario"># True</span>
+print(a >= b)  <span class="comentario"># False</span>
+print(a <= b)  <span class="comentario"># True</span>
+    </pre>
 </body>
 </html>
