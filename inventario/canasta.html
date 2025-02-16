@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canasta de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">🛒 Canasta de Compras</h1>
+        <label for="producto">Seleccionar Producto:</label>
+        <select id="producto" class="form-control"></select>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" class="form-control">
+        <br>
+        <button onclick="agregarACanasta()" class="btn btn-success w-100">Agregar</button>
+        <br><br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-canasta"></tbody>
+        </table>
+        <button onclick="confirmarCompra()" class="btn btn-primary w-100">Confirmar Compra</button>
+        <br><br>
+        <a href="index.html" class="btn btn-secondary w-100">🔙 Volver al Inventario</a>
+    </div>
+    <script>
+        let canasta = [];
+
+        function cargarProductos() {
+            fetch("backend.php?action=listar")
+                .then(res => res.json())
+                .then(data => {
+                    let select = document.getElementById("producto");
+                    select.innerHTML = data.map(prod => `
+                <option value="${prod.id}" data-precio="${prod.precio}" data-stock="${prod.cantidad}">
+                    ${prod.nombre} (Stock: ${prod.cantidad})
+                </option>
+            `).join("");
+                        });
+        }
+
+        function agregarACanasta() {
+            let select = document.getElementById("producto");
+            let id = select.value;
+            let nombre = select.options[select.selectedIndex].text;
+            let cantidad = parseInt(document.getElementById("cantidad").value);
+            let precio = parseFloat(select.options[select.selectedIndex].getAttribute("data-precio"));
+
+            if (cantidad <= 0) {
+                alert("Cantidad inválida.");
+                return;
+            }
+
+            canasta.push({ id, nombre, cantidad, total: cantidad * precio });
+            mostrarCanasta();
+        }
+
+        function mostrarCanasta() {
+            let tabla = document.getElementById("tabla-canasta");
+            tabla.innerHTML = canasta.map((item, index) => `
+                <tr>
+                    <td>${item.nombre}</td>
+                    <td>${item.cantidad}</td>
+                    <td>$${item.total.toFixed(2)}</td>
+                    <td><button class="btn btn-danger btn-sm" onclick="eliminarDeCanasta(${index})">❌</button></td>
+                </tr>
+            `).join("");
+        }
+
+        function eliminarDeCanasta(index) {
+            canasta.splice(index, 1);
+            mostrarCanasta();
+        }
+
+        function confirmarCompra() {
+            fetch("backend.php?action=venta", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(canasta)
+            }).then(() => {
+                alert("Compra registrada.");
+                window.location.href = "index.html";
+            });
+        }
+
+        cargarProductos();
+    </script>
+</body>
+</html>
