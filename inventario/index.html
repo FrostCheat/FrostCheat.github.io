@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventario de Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">📦 Inventario de Productos</h1>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Precio Total</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-productos"></tbody>
+            <tfoot>
+                <tr class="table-warning">
+                    <td>Total Productos:</td>
+                    <td id="total-productos" class="text-center"></td>
+                    <td>Total Precio:</td>
+                    <td id="total-precio" class="text-center"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <a href="agregar.html" class="btn btn-primary">➕ Agregar Producto</a>
+        <a href="editar.html" class="btn btn-warning">✏️ Editar Producto</a>
+        <a href="eliminar.html" class="btn btn-danger">❌ Eliminar Producto</a>
+        <a href="canasta.html" class="btn btn-success">🛒 Ir a la Canasta</a>
+        <a href="registro.html" class="btn btn-dark">📜 Ver Registro de Ventas</a>
+    </div>
+    <script>
+        const COP_TO_USD_RATE = 4000;
+        function cargarProductos() {
+            fetch("backend.php?action=listar")
+        .then(res => res.json())
+        .then(data => {
+            let tabla = document.getElementById("tabla-productos");
+            let totalProductos = 0;
+            let totalPrecio = 0;
+            tabla.innerHTML = "";
+
+            data.forEach(prod => {
+                let cantidad = parseInt(prod.cantidad, 10) || 0;
+                let precioCOP = parseFloat(prod.precio) || 0;
+                let totalCOP = cantidad * precioCOP;
+
+                let precioUSD = precioCOP / COP_TO_USD_RATE;
+                let totalUSD = totalCOP / COP_TO_USD_RATE;
+
+                totalProductos += cantidad;
+                totalPrecio += totalCOP;
+
+                let precioFormateado = `${precioCOP.toLocaleString("es-ES", { style: "currency", currency: "COP" })} (${precioUSD.toLocaleString("en-US", { style: "currency", currency: "USD" })})`;
+                let totalFormateado = `${totalCOP.toLocaleString("es-ES", { style: "currency", currency: "COP" })} (${totalUSD.toLocaleString("en-US", { style: "currency", currency: "USD" })})`;
+
+                tabla.innerHTML += `
+                    <tr>
+                        <td>${prod.nombre}</td>
+                        <td class="text-center">${cantidad}</td>
+                        <td class="text-center">${precioFormateado}</td>
+                        <td class="text-center">${totalFormateado}</td>
+                    </tr>
+                `;
+            });
+
+            let totalFormateadoCOP = totalPrecio.toLocaleString("es-ES", { style: "currency", currency: "COP" });
+            let totalFormateadoUSD = (totalPrecio / COP_TO_USD_RATE).toLocaleString("en-US", { style: "currency", currency: "USD" });
+
+            document.getElementById("total-productos").innerText = totalProductos; // ✅ Ahora muestra el total correcto
+            document.getElementById("total-precio").innerText = `${totalFormateadoCOP} (${totalFormateadoUSD})`;
+        })
+        .catch(error => console.error("Error al cargar productos:", error));
+}
+
+        cargarProductos();
+    </script>
+</body>
+</html>
