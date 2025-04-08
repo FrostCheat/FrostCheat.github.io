@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía de Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    h1, h2 {
+      color: #006699;
+    }
+    code {
+      background: #eef;
+      padding: 4px 6px;
+      display: block;
+      margin: 10px 0;
+      white-space: pre-wrap;
+      border-left: 4px solid #99c;
+    }
+    section {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐍 Guía Extensa de Python</h1>
+
+  <section>
+    <h2>📌 1. Listas en Python</h2>
+    <code>
+frutas = ["manzana", "banana", "cereza"]
+print(frutas[0])
+frutas[1] = "kiwi"
+frutas.append("naranja")
+frutas.insert(1, "pera")
+frutas.remove("cereza")
+frutas.pop(0)
+for fruta in frutas:
+    print(fruta)
+print(len(frutas))
+    </code>
+  </section>
+
+  <section>
+    <h2>📌 2. Diccionarios en Python</h2>
+    <code>
+persona = {
+    "nombre": "Juan",
+    "edad": 30,
+    "ciudad": "Bogotá"
+}
+print(persona["nombre"])
+persona["edad"] = 31
+persona["profesion"] = "Ingeniero"
+del persona["ciudad"]
+for clave, valor in persona.items():
+    print(clave, ":", valor)
+print(persona.keys())
+print(persona.values())
+    </code>
+  </section>
+
+  <section>
+    <h2>📌 3. Operadores Lógicos</h2>
+    <code>
+a = 10
+b = 5
+print(a &gt; 5 and b &lt; 10)
+print(a &gt; 5 or b &gt; 10)
+print(not (a &gt; 5))
+
+if a &gt; 5 and b &lt; 10:
+    print("Ambas condiciones son verdaderas.")
+    </code>
+  </section>
+
+  <section>
+    <h2>📌 4. Bucles</h2>
+    <h3>🔁 Bucle for</h3>
+    <code>
+for i in [1, 2, 3, 4]:
+    print(i)
+
+for i in range(5):
+    print(i)
+
+for clave in persona:
+    print(clave, "->", persona[clave])
+    </code>
+
+    <h3>🔁 Bucle while</h3>
+    <code>
+x = 0
+while x &lt; 5:
+    print(x)
+    x += 1
+    </code>
+
+    <h3>🔁 Control de bucles</h3>
+    <code>
+for i in range(5):
+    if i == 3:
+        continue
+    if i == 4:
+        break
+    print(i)
+    </code>
+  </section>
+
+  <section>
+    <h2>📌 5. Funciones</h2>
+    <code>
+def saludar():
+    print("¡Hola mundo!")
+
+saludar()
+
+def saludar_nombre(nombre):
+    print(f"Hola, {nombre}")
+
+saludar_nombre("Carlos")
+
+def suma(a, b):
+    return a + b
+
+resultado = suma(3, 5)
+print("Resultado:", resultado)
+
+def saludo(nombre="amigo"):
+    print("Hola", nombre)
+
+saludo()
+saludo("Lucía")
+    </code>
+  </section>
+
+  <section>
+    <h2>📌 6. Extra: Listas y Diccionarios Combinados</h2>
+    <code>
+usuarios = [
+    {"nombre": "Ana", "edad": 25},
+    {"nombre": "Luis", "edad": 30}
+]
+
+for usuario in usuarios:
+    print(usuario["nombre"], "tiene", usuario["edad"], "años.")
+    </code>
+  </section>
+
+  <section>
+    <h2>✅ Consejos Finales</h2>
+    <ul>
+      <li>Usa nombres descriptivos en tus variables y funciones.</li>
+      <li>Practica con ejemplos reales y proyectos personales.</li>
+      <li>Combina estructuras como listas dentro de diccionarios.</li>
+      <li>Utiliza <code>input()</code> para hacer programas interactivos.</li>
+    </ul>
+  </section>
+
+</body>
+</html>
